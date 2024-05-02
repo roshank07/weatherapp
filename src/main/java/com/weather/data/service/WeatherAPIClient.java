@@ -16,11 +16,6 @@ public class WeatherAPIClient {
     @Value("${weather.api.key}")
     private String apiKey;
 
-    @Value("${weather.api.query}")
-    private String query;
-
-    @Value("${weather.api.count}")
-    private int count;
 
     private final RestTemplate restTemplate;
 
@@ -29,11 +24,11 @@ public class WeatherAPIClient {
         this.restTemplate = restTemplate;
     }
 
-    public WeatherAPIClientResponse getWeatherForecast() {
+    public WeatherAPIClientResponse getWeatherForecast(String city,Integer numberOfDays) {
         String url = UriComponentsBuilder.fromHttpUrl(baseUrl)
-                .queryParam("q", query)
+                .queryParam("q", city)
                 .queryParam("appid", apiKey)
-                .queryParam("cnt", count)
+                .queryParam("cnt", numberOfDays*8)
                 .toUriString();
 
         return restTemplate.getForObject(url, WeatherAPIClientResponse.class);

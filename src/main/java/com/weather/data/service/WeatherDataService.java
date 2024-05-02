@@ -20,8 +20,8 @@ public class WeatherDataService {
         this.weatherResponseCreator = weatherResponseCreator;
     }
 
-    public List<WeatherDataResponse> getWeatherForecast(Integer numberOfDays) {
-        List<WeatherEntry> weatherEntries = weatherAPIClient.getWeatherForecast().getList();
+    public List<WeatherDataResponse> getWeatherForecast(String city, Integer numberOfDays) {
+        List<WeatherEntry> weatherEntries = weatherAPIClient.getWeatherForecast(city,numberOfDays).getList();
         List<AggregatedData> aggregatedData = weatherEntryAggregator.aggregateData(weatherEntries);
         return weatherResponseCreator.createWeatherDataResponses(aggregatedData,numberOfDays);
     }
