@@ -40,3 +40,10 @@ This application uses environment variables and Spring profiles for configuratio
 The application also supports different profiles, each with its own configuration. These configurations are specified in `application-{profile}.properties` files. When a profile is active, the application uses the configuration from the corresponding `application-{profile}.properties` file, overriding the same properties in the `application.properties` file.
 
 To run the application with a specific profile, use the `-Dspring.profiles.active={profile}` argument when starting the application. For example, to run the application with the `preprod` profile, use the command: `java -jar target/your-artifactId-version.jar -Dspring.profiles.active=preprod`.
+
+
+## Test Cases
+
+The service includes test cases to ensure the functionality of the `MessageAdder` class. These test cases check the messages returned by the `getMessage` method under different weather conditions.
+
+To run the test cases, use the following command: `mvn test`.
