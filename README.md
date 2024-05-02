@@ -25,10 +25,8 @@ Please ensure you have Java and Maven installed on your machine before running t
 
 - `GET /forecast?city={city}&days={days}`: Fetches the weather forecast for the specified city and number of days.
 
-## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## License
+## API Documentation
 
-[MIT](https://choosealicense.com/licenses/mit/)
+You can find the API documentation at [Swagger UI](http://localhost:8080/swagger-ui/index.html) when the application is running. It provides a detailed description of the API endpoints, request/response models, and allows you to try out the API calls directly from the browser.
