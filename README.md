@@ -23,10 +23,20 @@ Please ensure you have Java and Maven installed on your machine before running t
 
 ## API Endpoints
 
-- `GET /forecast?city={city}&days={days}`: Fetches the weather forecast for the specified city and number of days.
+- `GET /api/weather?city={city}&days={days}`: Fetches the weather forecast for the specified city and number of days.
 
 
 
 ## API Documentation
 
 You can find the API documentation at [Swagger UI](http://localhost:8080/swagger-ui/index.html) when the application is running. It provides a detailed description of the API endpoints, request/response models, and allows you to try out the API calls directly from the browser.
+
+
+
+## Configuration and Profiles
+
+This application uses environment variables and Spring profiles for configuration. The `application.properties` file contains the default configuration. The application fetches values from environment variables if they are set, otherwise, it uses the default values specified in the `application.properties` file.
+
+The application also supports different profiles, each with its own configuration. These configurations are specified in `application-{profile}.properties` files. When a profile is active, the application uses the configuration from the corresponding `application-{profile}.properties` file, overriding the same properties in the `application.properties` file.
+
+To run the application with a specific profile, use the `-Dspring.profiles.active={profile}` argument when starting the application. For example, to run the application with the `preprod` profile, use the command: `java -jar target/your-artifactId-version.jar -Dspring.profiles.active=preprod`.
